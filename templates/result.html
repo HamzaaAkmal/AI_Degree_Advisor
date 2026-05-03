@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="result-hero">
+    <div>
+        <p class="eyebrow">Best match for {{ profile.name or "student" }}</p>
+        <h1>{{ result.best.degree }}</h1>
+        <p class="hero-text">{{ result.best.reason or "This path scored highest from marks, skills, interests, and career direction." }}</p>
+    </div>
+    <div class="score-card">
+        <span>{{ result.best.score }}</span>
+        <p>match score</p>
+    </div>
+</section>
+
+<section class="result-layout">
+    <div class="panel">
+        <h2>Recommended careers</h2>
+        <div class="career-list">
+            {% for career in result.careers %}
+            <article class="career-item">
+                <h3>{{ career.career }}</h3>
+                <p>{{ career.description }}</p>
+            </article>
+            {% endfor %}
+        </div>
+    </div>
+
+    <div class="panel">
+        <h2>Rules fired</h2>
+        <div class="rule-list">
+            {% for rule in result.rules_used %}
+            <span>{{ rule.replace("_", " ") }}</span>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<section class="panel">
+    <h2>All ranked states</h2>
+    <div class="rank-table">
+        <div class="table-head">
+            <span>Degree state</span>
+            <span>Score</span>
+            <span>Missing cost</span>
+        </div>
+        {% for item in result.ranked %}
+        <div class="table-row">
+            <span>{{ item.degree }}</span>
+            <strong>{{ item.score }}</strong>
+            <span>{{ item.missing_cost }}</span>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+
+<section class="panel chat-panel">
+    <div class="chat-heading">
+        <div>
+            <p class="eyebrow">Groq AI guidance</p>
+            <h2>Ask about your result</h2>
+        </div>
+    </div>
+    <div id="chatMessages" class="chat-messages">
+        <div class="bot-message">Ask me about subjects, semester planning, skills to learn, or career direction.</div>
+    </div>
+    <form id="chatForm" class="chat-form">
+        <input id="chatInput" placeholder="Ask a question about this recommendation...">
+        <button type="submit">Send</button>
+    </form>
+</section>
+{% endblock %}

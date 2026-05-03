@@ -1,0 +1,82 @@
+[
+  {
+    "profile": {
+      "name": "Student",
+      "marks": "78",
+      "interests": [
+        "ai",
+        "software",
+        "data"
+      ],
+      "skills": [
+        "python",
+        "logic",
+        "databases"
+      ],
+      "preferred_work": "development",
+      "math_level": "medium",
+      "goal": "AI engineer"
+    },
+    "result": {
+      "best_degree": "BS Computer Science",
+      "score": 88,
+      "careers": [
+        "Full Stack Developer",
+        "Backend Developer"
+      ]
+    }
+  },
+  {
+    "profile": {
+      "name": "Hamza",
+      "marks": "76",
+      "interests": [
+        "web",
+        "apps"
+      ],
+      "skills": [
+        "problem solving",
+        "excel",
+        "communication"
+      ],
+      "preferred_work": "development",
+      "math_level": "medium",
+      "goal": "I want to be a problem solver like mera tech me experience hai"
+    },
+    "result": {
+      "best_degree": "BS Computer Science",
+      "score": 91,
+      "careers": [
+        "Full Stack Developer",
+        "Backend Developer"
+      ]
+    }
+  },
+  {
+    "profile": {
+      "name": "Test Student",
+      "marks": "78",
+      "interests": [
+        "ai",
+        "data",
+        "automation"
+      ],
+      "skills": [
+        "python",
+        "logic",
+        "math"
+      ],
+      "preferred_work": "research",
+      "math_level": "high",
+      "goal": "AI engineer"
+    },
+    "result": {
+      "best_degree": "BS Artificial Intelligence",
+      "score": 100,
+      "careers": [
+        "Machine Learning Engineer",
+        "AI Chatbot Developer"
+      ]
+    }
+  }
+]

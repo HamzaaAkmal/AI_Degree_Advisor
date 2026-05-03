@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="page-heading">
+    <p class="eyebrow">Session memory</p>
+    <h1>Previous recommendations</h1>
+</section>
+
+<section class="history-list">
+    {% if records %}
+        {% for item in records %}
+        <article class="panel history-card">
+            <div>
+                <h2>{{ item.profile.name or "Student" }}</h2>
+                <p>{{ item.profile.marks }} marks · {{ item.profile.math_level }} math · {{ item.profile.preferred_work }}</p>
+            </div>
+            <div>
+                <strong>{{ item.result.best_degree }}</strong>
+                <p>Score {{ item.result.score }}</p>
+            </div>
+        </article>
+        {% endfor %}
+    {% else %}
+        <div class="panel empty-state">No history yet. Submit the form to create the first recommendation.</div>
+    {% endif %}
+</section>
+{% endblock %}

@@ -1,0 +1,79 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="hero">
+    <div class="hero-copy">
+        <p class="eyebrow">Programming for AI final project</p>
+        <h1>Find the degree path that matches your marks, skills, and career goals.</h1>
+        <p class="hero-text">A Flask based recommendation system using rule logic, state-space scoring, A* ranking, session history, and Groq powered guidance.</p>
+    </div>
+</section>
+
+<section class="panel form-panel">
+    <form action="{{ url_for('recommend') }}" method="post" class="advisor-form">
+        <div class="form-grid">
+            <label>
+                Student name
+                <input name="name" placeholder="e.g. Abdullah" required>
+            </label>
+
+            <label>
+                Marks percentage
+                <input name="marks" type="number" min="0" max="100" placeholder="75" required>
+            </label>
+
+            <label>
+                Preferred work style
+                <select name="preferred_work" required>
+                    <option value="">Choose one</option>
+                    <option value="development">Development</option>
+                    <option value="research">Research</option>
+                    <option value="investigation">Investigation</option>
+                    <option value="support">Support</option>
+                </select>
+            </label>
+
+            <label>
+                Math level
+                <select name="math_level" required>
+                    <option value="">Choose one</option>
+                    <option value="low">Low</option>
+                    <option value="medium">Medium</option>
+                    <option value="high">High</option>
+                </select>
+            </label>
+        </div>
+
+        <div class="choice-area">
+            <h2>Interests</h2>
+            <div class="chips">
+                {% for interest in ["ai", "software", "web", "apps", "data", "statistics", "security", "networks", "business", "automation"] %}
+                <label class="chip">
+                    <input type="checkbox" name="interests" value="{{ interest }}">
+                    <span>{{ interest }}</span>
+                </label>
+                {% endfor %}
+            </div>
+        </div>
+
+        <div class="choice-area">
+            <h2>Skills</h2>
+            <div class="chips">
+                {% for skill in ["python", "javascript", "logic", "problem solving", "databases", "math", "excel", "linux", "networking", "communication"] %}
+                <label class="chip">
+                    <input type="checkbox" name="skills" value="{{ skill }}">
+                    <span>{{ skill }}</span>
+                </label>
+                {% endfor %}
+            </div>
+        </div>
+
+        <label>
+            Career goal
+            <textarea name="goal" rows="4" placeholder="Write your dream job or field, like AI engineer, web developer, cyber security analyst..."></textarea>
+        </label>
+
+        <button class="primary-btn" type="submit">Generate Recommendation</button>
+    </form>
+</section>
+{% endblock %}
